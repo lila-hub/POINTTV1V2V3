@@ -1,0 +1,22 @@
+# 大数据与权重（GitHub 单文件 100MB 限制；权重请用 Hugging Face 等）
+/data/
+/models/
+*.log
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.eggs/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+venv/
+.env
+.env.*
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+.nfs*

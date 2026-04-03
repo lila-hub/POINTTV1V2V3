@@ -1,0 +1,6 @@
+Pointcept 原独立仓库的 .git 已移至上级目录备份，便于父仓库一次性跟踪全部源码：
+  ~/pointv3_Pointcept_dot_git_backup
+
+若需恢复为子模块/独立 clone：
+  mv ~/pointv3_Pointcept_dot_git_backup ~/pointv3/Pointcept/.git
+上游：https://github.com/Pointcept/Pointcept

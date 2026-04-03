@@ -1,0 +1,36 @@
+Point Transformer V3 / Pointcept 工程目录（当前仓库：~/pointv3）
+
+建议布局
+----------
+Pointcept/              # Pointcept 源码（v1.5.0）
+scripts/                # 一键脚本与工具（*.sh / *.py）
+data/                   # 数据根目录
+  scannet_processed/    # ScanNet 预处理（解压、.pth 等）
+models/                 # 预训练权重
+  ptv3/                 # Hugging Face 下载的 PTv3 实验与权重
+runs/                   # 测试输出、日志、可视化
+  ptv3_test_sub10/      # 1/10 test 子集结果（含 SUB10_REPORT.md、vis/）
+  ptv3_scannet_val/     # 全量 val 测试输出（若已跑）
+logs/                   # 其它日志（test_bg.log 等）
+
+首次把旧路径迁入本目录
+--------------------------
+若数据仍在 ~/datasets、~/runs、~/models，在本机执行：
+
+  bash ~/pointv3/relocate_assets.sh
+
+会迁入：
+  ~/datasets/scannet_processed  ->  ~/pointv3/data/scannet_processed
+  ~/models/ptv3                 ->  ~/pointv3/models/ptv3
+  ~/runs/*（整个目录）          ->  ~/pointv3/runs/（合并后删除 ~/runs）
+
+若目标目录已存在：用 rsync 合并后删除源目录（需已安装 rsync）。
+
+完成后会建立：Pointcept/data/scannet -> ~/pointv3/data/scannet_processed
+
+若因空间不足只能保留一份数据，也可手动 mv 或 ln -s 到上述 pointv3 路径。
+
+常用命令
+----------
+  bash ~/pointv3/scripts/continue_ptv3_from_stage7.sh   # HF 下载 → 测试（需先 export token）
+  bash ~/pointv3/scripts/run_sub10_pipeline.sh           # 1/10 test 子集 + 可视化报告
